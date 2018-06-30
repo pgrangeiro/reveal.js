@@ -1,49 +1,618 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+        <title>SOLID Python</title>
+        <meta name="author" content="Paula Grangeiro">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-background-image="/img/solid-snake.jpg" data-background-size="contain" data-background-position="right">
+                    <h1>SOLID Python</h1>
+                    <h4 style="background-color: #FFF">Princípios SOLID em projetos Python</4>
+                    <p><small>Por <a href="http://paulagrangeiro.com.br/">Paula Grangeiro</a> • PythonRio Junho 2018</small></p>
+                </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+                <section>
+                  <div class="row">
+                    <div class="col-md-7 text-left">
+                      <h2>Paula Grangeiro</h2>
+                      <p>#WebDeveloper #Senior #Python #Freelancer #Pyladies</p>
+                      <p>#DesignPatterns #QualidadeCódigo</p>
+                    </div>
+                    <div class="col-md-5">
+                      <img src="/img/profile.jpg" class="img-responsive">
+                    </div>
+                  </div>
+                </section>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+                <section>
+                  <h2>Primórdios da Programação</h2>
+                </section>
+
+                <section>
+                  <div class="row">
+                    <div class="col-md-5">
+                      <img src="/img/eniac.jpg" class="img-thumbnail" alt="Eniac">
+                    </div>
+                    <div class="col-md-7">
+                      <img src="/img/programmers.jpg" class="img-thumbnail" alt="Programmers">
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <section>
+                    <div class="row">
+                      <div class="col-md-9">
+                        <h3>Programação em Batch</h3>
+                        <ul>
+                          <li>Instruções sequenciais</li>
+                          <li>ø fallback</li>
+                        </ul>
+                      </div>
+                      <div class="col-md-3">
+                        <img src="/img/card-deck.jpg" class="img-thumbnail" alt="Deck of code cards">
+                      </div>
+                    </div>
+                  </section>
+                  <section>
+                    <div class="row">
+                      <div class="col-md-7">
+                        <img src="/img/fortran-card.jpg" class="img-thumbnail" alt="Fortran card">
+                        <small>Cartão de código Fortran</small>
+                      </div>
+                      <div class="col-md-5">
+                        <img src="/img/fortran-program.jpg" class="img-thumbnail" alt="Fortran program">
+                        <small>Programa Fortran com subrotinas demarcadas</small>
+                      </div>
+                    </div>
+                  </section>
+                </section>
+
+                <section>
+                  <blockquote class="blockquote">
+                    <p>As linguagens de programação evoluíram de acordo com a interação homem x código.</p>
+                  </blockquote>
+                </section>
+
+                <section>
+                  <section id="fragments">
+                    <h2>Evolução dos Paradigmas</h2>
+                    <p class="fragment">Estruturado</p>
+                    <p class="fragment">Procedural</p>
+                    <p class="fragment">Orientado à Objeto</p>
+                    <p class="fragment">Funcional</p>
+                    <p class="fragment">...</p>
+                  </section>
+                  <section>
+                    <img src="/img/programming-language-history.png" class="img-thumbnail" alt="Fortran program">
+                  </section>
+                </section>
+
+                <section>
+                  <h2>Orientação Objeto</h2>
+                </section>
+
+                <section>
+                  <h2>Orientação Objeto</h2>
+                  <div class="row">
+                    <div class="col-md-5">
+                      <ul>
+                        <li>Reusabilidade de código</li>
+                        <li>Conjunto de componentes que interagem (objetos)</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-5">
+                      <p class="fragment">- Acoplamento</p>
+                      <p class="fragment">+ Coesão</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section style="height:100%">
+                  <section>
+                    <p>
+                      <a href="https://github.com/MohamedGalalGhaly/palindromeString/blob/master/main.c" target="_blank">Encontrar Palíndromo (procedural)</a>
+                    </p>
+                    <p>
+                      <a href="https://github.com/montanaflynn/palindromes/blob/master/Java/palindromes.java" target="_blank">Encontrar Palíndromo (oo)</a>
+                    </p>
+                  </section>
+                  <section>
+                    <h2>O que é um palíndromo?</h2>
+                    <img src="/img/palindrome.png">
+                  </section>
+                </section>
+
+                <section>
+                  <blockquote class="blockquote">
+                    <p>Código procedural em estrutura de classes</p>
+                  </blockquote>
+                  <blockquote cite="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod">
+                    <p>"(...) most of us (developers) use those languages (OO) without knowing why, and without knowing how to get the the most benefit out of them." - Robert C. Martin</p>
+                  </blockquote>
+                </section>
+
+                <section>
+                  <h2>Design Patterns</h2>
+                </section>
+
+                <section>
+                  <ul>
+                    <li>23 padrões, divididos em 3 classificações</li>
+                    <li>
+                      Conjunto de soluções para diferentes problemas de O.O.
+                      <ul>
+                        <li>Motivo, Aplicabilidade e Tradeoffs</li>
+                      </ul>
+                    </li>
+                    <li>Nem todos são aplicáveis em linguagens dinâmicas</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <section>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <ul>
+                          <li>
+                            Criação
+                            <ul>
+                              <li>Factory Method</li>
+                              <li>Singleton</li>
+                              <li>...</li>
+                            </ul>
+                          </li>
+
+                          <li>
+                            Estruturais
+                            <ul>
+                              <li>Decorator</li>
+                              <li>Proxy</li>
+                              <li>...</li>
+                            </ul>
+                          </li>
+                          <li>
+                            Comportamentais
+                            <ul>
+                              <li>Iterator</li>
+                              <li>Command</li>
+                              <li>...</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-md-6">
+                        <img src="/img/gof.jpg">
+                      </div>
+                    </div>
+                  </section>
+                  <section>
+                    Foto gof
+                  </section>
+                </section>
+
+                <section>
+                  <h2>SOLID</h2>
+                </section>
+
+                <section>
+                  <p>Single Responsability Principle</p>
+                  <p>Open/Closed Principle</p>
+                  <p>Liskov Substituition Principle</p>
+                  <p>Interface Segregation Principle</p>
+                  <p>Dependency Inversion Principle</p>
+                  <h2>S.O.L.I.D.</h2>
+                </section>
+
+                <section>
+                  <h2>Single Responsability</h2>
+                  <p>Uma classe deve ter um (e apenas um) único motivo para ser modificada</li>
+                </section>
+
+                <section>
+                  <pre><code>
+class Impressora:
+
+    def __init__(self, cartuchos, folhas):
+        self.cartuchos = cartuchos
+        self.folhas = folhas
+
+    def valida_cartucho(self):
+        # verifica se cartucho tem tinta
+
+    def valida_folha(self):
+        # verifica se existem folhas
+
+    def imprime(self, informacao):
+        valida_cartucho()
+        valida_folhas()
+
+        for folha in folhas:
+          # pruuu pri pripri pri
+          # imprimindo informacoes
+                  </code></pre>
+                </section>
+
+                <section>
+                  <pre><code>
+class Cartucho:
+
+    def __init__(self, **kwargs):
+        # inicializa cartucho
+
+    def validate(self):
+        # valida estado do objeto cartucho
+
+
+class Folha:
+
+    def __init__(self, **kwargs):
+        # inicializa objeto folha
+
+    def validate(self):
+        # valida estado do objeto folha
+
+
+class Impressora:
+
+    def __init__(self, cartuchos, folhas):
+        # inicializa impressoa
+
+    def imprime(self, informacao):
+        # valida cartuchos e folhas e imprime
+        for folha in folhas:
+          # pruuu pri pripri pri
+          # imprimindo informacoes
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h2>Open/Closed</h2>
+                  <p>Você deve ser capaz de extender o comportamento de uma classe, sem modificá-lo.</p>
+                </section>
+
+                <section>
+                  <pre><code>
+class Impressora:
+
+    def __init__(self, cartuchos, folhas):
+        # inicializa impressoa
+
+    def imprime(self, informacao):
+        # valida cartuchos e folhas e imprime
+        for folha in folhas:
+          # pruuu pri pripri pri
+          # imprimindo informacoes
+                  </code></pre>
+                </section>
+
+                <section>
+                  <pre><code>
+class BaseImpressora:
+
+    def imprime(self, informacao):
+        self.impressor.imprime(informacao)
+
+
+class ImpressoraFolha(BaseImpressora):
+
+    def __init__(self, cartuchos, folhas):
+        self.impressor = ImpressorFolhas(cartucho, folhas)
+
+
+class Impressora3D(BaseImpressora):
+
+    def __init__(self, filamento):
+        self.impressor = Impressor3D(filamento)
+
+
+class ImpressorFolhas:
+
+    def __init__(self, cartuchos, folhas):
+        # inicializa
+
+    def imprime(self, informacao):
+        for folha in folhas:
+            try:
+                # imprime informacao
+                # cabô espaço da folha
+                # lança exceção
+            except NaoTemMaisEspacoFolhaError:
+                continue
+            except NaoTemMaisTintaCartuchoError:
+                raise CaboTintaError()
+
+
+class Impressor3D:
+
+    def __init__(self, filamento):
+        # inicializa
+
+    def imprime(self, informacao):
+        while filamento.exist():
+            filamento.imprime(informacao)
+                  </code></pre>
+                </section>
+                <section>
+                  <h2>Liskov</h2>
+                  <p>Classes derivadas devem ser facilmente substituídas por suas superclasses.</p>
+                </section>
+
+                <section>
+                  <pre><code>
+class BaseImpressora:
+
+    def imprime(self, informacao):
+        self.impressor.imprime(informacao)
+
+
+class ImpressoraFolha(BaseImpressora):
+
+    def __init__(self, cartuchos, folhas):
+        self.impressor = ImpressorFolhas(cartucho, folhas)
+
+
+class Impressora3D(BaseImpressora):
+
+    def __init__(self, filamento):
+        self.impressor = Impressor3D(filamento)
+                  </code></pre>
+                </section>
+
+                <section>
+                  <pre><code>
+class ImpressaoController:
+
+    def __call__(self, informacao, cartuchos=None, folhas=None, filamento=None):
+        if folhas:
+            impressora = ImpressoraFolha(cartuchos, folhas)
+        else:
+            impressora = Impressora3D(filamento)
+        impressora.imprime(informacao)
+                  </code></pre>
+                </section>
+
+                <section>
+                  <pre><code>
+class Impressora:
+
+    def __init__(self, impressor):
+        self.impressor = impressor
+
+    def imprime(self, informacao):
+        self.impressor.imprime(informacao)
+
+
+class BaseImpressor:
+
+    def imprime(self, informacao):
+        raise NotImplementedError
+
+
+class ImpressorFolhas(BaseImpressor):
+
+    def __init__(self, cartuchos, folhas):
+        # inicializa impressor
+
+    def imprime(self, informacao):
+        for folha in folhas:
+            try:
+                # imprime informacao
+                # cabô espaço da folha
+                # lança exceção
+            except NaoTemMaisEspacoFolhaError:
+                continue
+            except NaoTemMaisTintaCartuchoError:
+                raise CaboTintaError()
+
+
+class Impressor3D(BaseImpressor):
+    # implementa impressor 3d
+
+
+class ImpressorXablau(BaseImpressor)
+    # implementar impressor xablau
+                  </code></pre>
+                </section>
+
+                <section>
+                  <pre><code>
+class ImpressaoController:
+
+    def __call__(self, impressora, impressor, informacao):
+        impressora = Impressora(impressor)
+        impressora.imprime(informacao)
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h2>Interface Segregation</h2>
+                  <p>Interfaces devem ser refinadas e específicas por cliente</p>
+                </section>
+
+                <section>
+                  <pre><code>
+class Impressora:
+
+    def __init__(self, impressor):
+        self.impressor = impressor
+
+    def imprime(self, informacao):
+        self.impressor.imprime(informacao)
+                  </code></pre>
+                </section>
+
+                <section>
+                  <pre><code>
+class ScanMixin:
+
+    def scan(self, informacao):
+        # implementa scan
+
+
+class Impressora:
+
+    def __init__(self, impressor):
+        self.impressor = impressor
+
+    def imprime(self, informacao):
+        self.impressor.imprime(informacao)
+
+
+class Multifuncional(ScanMixin, Impressora):
+    pass
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h2>Dependency Inversion</h2>
+                  <p>Dependa de abstrações, não de concretos.</p>
+                </section>
+
+                <section>
+                  <pre><code>
+class ImpressoraFolha(BaseImpressora):
+
+    def __init__(self, cartuchos, folhas):
+        self.impressor = ImpressorFolhas(cartucho, folhas)
+
+
+class ImpressorFolhas:
+
+    def __init__(self, cartuchos, folhas):
+        # inicializa
+
+    def imprime(self, informacao):
+        for folha in folhas:
+            try:
+                # imprime informacao
+                # cabô espaço da folha
+                # lança exceção
+            except NaoTemMaisEspacoFolhaError:
+                continue
+            except NaoTemMaisTintaCartuchoError:
+                raise CaboTintaError()
+
+                  </pre></code>
+                </section>
+
+                <section>
+                  <pre><code>
+class Impressora:
+
+    def __init__(self, impressor):
+        self.impressor = impressor
+
+    def imprime(self, informacao):
+        self.impressor.imprime(informacao)
+
+
+class BaseImpressor:
+
+    def imprime(self, informacao):
+        raise NotImplementedError
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h2>Bullets</h2>
+                  <ul>
+                    <li>
+                      Evite otimização precoce
+                      <ul>
+                        <li>Experimente os principios em partes do sistema que <b>hoje</b> estão ruins de manter.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      Não seja xiita com princípios ou padrões de projetos
+                      <ul>
+                        <li>Foque nas vantagens e desvantagens da implementação seguindo os princípios SOLID.</li>
+                        <li>Se vai facilitar demais por um lado e complicar demais do outro, não troque 6 por meia-dúzia</li>
+                        <li>Se está ruim de testar, de repente não deu bom :/</li>
+                      </ul>
+                    </li>
+                    <li>Qualidade de código não se faz sozinho (a menos que só exista você no projeto)
+                      <ul>
+                        <li>Converse com o seu time e experimentem juntos ( ͡° ͜ʖ ͡°)</li>
+                      </ul>
+                    </li>
+                </section>
+
+                <section>
+                  <h2>Dúvidas?</h2>
+                </section>
+
+                <section>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h2>Obrigada</h2>
+                      <p>contato@paulagrangeiro.com.br</p>
+                      <p>paulagrangeiro.com.br</p>
+                      <p>@pgrangeiro</p>
+                    </div>
+                    <div class="col-md-6">
+                      <img src="/img/genkai.png" class="img-responsive">
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <h2>Fontes</h2>
+                  <ul>
+                    <li><a href="http://fortune.com/2014/09/18/walter-isaacson-the-women-of-eniac/">Walter Isaacson on the Women of ENIAC</a></li>
+                    <li><a href="https://kernelmag.dailydot.com/issue-sections/features-issue-sections/11384/10-women-who-changed-the-tech-industry-forever/">10 women who changed the tech industry forever </a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Computer_programming_in_the_punched_card_era">Computer programming in the punched card era</a></li>
+                    <li><a href="http://www.pfnp.me/mother-tongues-the-evolution-of-programming-languages/">Where do programming languages come from?</a></li>
+                    <li><a href="https://github.com/montanaflynn/palindromes">Repositório de algorítmos para encontrar Palíndromos em diversas linguagens</a></li>
+                    <li><a href="https://github.com/MohamedGalalGhaly/palindromeString">Repositório de algorítmo para encontrar Palíndromos em C</a></li>
+                    <li><a href="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod">The Principles of OOD</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Software_design_pattern">Software design pattern</a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                  </ul>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
 </html>
